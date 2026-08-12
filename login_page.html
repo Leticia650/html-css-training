@@ -13,18 +13,17 @@ body{
     align-items: center;
     background-color: #111;
     font-family: sans-serif;
-
 }
+
 h1{
-  
     color: #9abcab;
+    transition: .5s;
 }
 
 h1:hover{
     font-size: 3em;
-    transition: .5s;
-    
 }
+
 .container{
     width: 400px;
     height: 220px;
@@ -38,11 +37,10 @@ h1:hover{
 
 .input-box{
     margin-left: 55px;
-    margin-top: 30px ;
+    margin-top: 30px;
     position: relative;
     width: 250px;
     margin-bottom: 20px;
- 
 }
 
 input{
@@ -55,7 +53,6 @@ input{
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
-    
 }
 
 label{
@@ -68,24 +65,23 @@ label{
     background-color: #111;
     padding: 0 5px;
     border: none;
-   
 }
 
-input:focus+label,
-input:valid+label{
+input:focus + label,
+input:valid + label{
     top: -8px;
     font-size: 12px;
     color: #9abcab;
 }
 
 .botao{
-  width: 100px;
-  margin-left: 37%;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 10px;
-  background-color: #111;
-  color:#9abcab
+    width: 100px;
+    margin-left: 37%;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #111;
+    color: #9abcab;
 }
 
 .botao:hover{
@@ -101,48 +97,91 @@ input:focus::placeholder{
     color: #94a2b8;
 }
 
-
 </style>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
 
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
 </head>
+
 <body>
-     <h1>Login</h1>
+
+    <h1>Login</h1>
+
     <div class="container">
-       
-        <div class="input-box">
-            <input type="text" required placeholder="Ex.: teste@email.com" id="email">
-            <label>Usuário</label>
-        </div>
 
-        <div class="input-box">
-            <input type="password" required placeholder="*******" minlength="8" id="senha">
-            <label>Senha</label>
+        <form id="formulario">
 
-        </div>
-            <button class="botao" onclick="Entrou()" id="entrar">Entrar</button>
+            <div class="input-box">
+                <input 
+                    type="email" 
+                    required 
+                    placeholder="Ex.: teste@email.com" 
+                    id="email"
+                >
+                <label>Usuário</label>
+            </div>
+
+            <div class="input-box">
+                <input 
+                    type="password" 
+                    required 
+                    placeholder="*******" 
+                    minlength="8" 
+                    id="senha"
+                >
+                <label>Senha</label>
+            </div>
+
+            <button class="botao" type="submit" id="entrar">
+                Entrar
+            </button>
+
+        </form>
 
     </div>
 
 
-    <script>
+<script>
 
-        let email = document.getElementById("email")
-        let senha = document.getElementById("senha")
-        let entrar = document.getElementById("entrar")
+let email = document.getElementById("email");
+let senha = document.getElementById("senha");
+let formulario = document.getElementById("formulario");
 
-        function Entrou(){
-            if (email.value !== "" &&   senha.value !== ""){
-                alert("Bem-vindo(a) ao sistema de teste!")
-            } else{
-                alert("Preencha os campos corretamente!")
-            }
-        }
 
-    </script>
+formulario.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    if(email.value === ""){
+        alert("Preencha o campo de email!");
+        return;
+    }
+
+    if(!email.value.includes("@")){
+        alert("Digite um email válido!");
+        return;
+    }
+
+    if(senha.value === ""){
+        alert("Preencha o campo de senha!");
+        return;
+    }
+
+    if(senha.value.length < 8){
+        alert("A senha precisa ter pelo menos 8 caracteres!");
+        return;
+    }
+
+    alert("Bem-vindo(a) ao sistema de teste!");
+
+    email.value = "";
+    senha.value = "";
+
+});
+
+</script>
+
 </body>
 </html>
