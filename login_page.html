@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<style>
+
+body{
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    font-family: sans-serif;
+
+}
+h1{
+    
+    color: #9abcab;
+}
+.container{
+    width: 400px;
+    height: 220px;
+    border: 2px solid #9abcab;
+    box-shadow:
+        0 0 2px #9abcab,
+        0 0 1px #9abcab,
+        0 0 9px #9abcab,
+        0 0 15px #9abcab;
+}
+
+.input-box{
+    margin-left: 55px;
+    margin-top: 30px ;
+    position: relative;
+    width: 250px;
+    margin-bottom: 20px;
+ 
+}
+
+input{
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 2px solid #9abcab;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    
+}
+
+label{
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: #94a2b8;
+    pointer-events: none;
+    transition: .3s;
+    background-color: #111;
+    padding: 0 5px;
+    border: none;
+   
+}
+
+input:focus+label,
+input:valid+label{
+    top: -8px;
+    font-size: 12px;
+    color: #9abcab;
+}
+
+.botao{
+  width: 100px;
+  margin-left: 37%;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #111;
+  color:#9abcab
+}
+
+.botao:hover{
+    background-color: #9abcab;
+    color: #111;
+}
+
+input::placeholder{
+    color: transparent;
+}
+
+input:focus::placeholder{
+    color: #94a2b8;
+}
+
+
+</style>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+     <h1>Login</h1>
+    <div class="container">
+       
+        <div class="input-box">
+            <input type="text" required placeholder="Ex.: teste@email.com" id="email">
+            <label>Usuário</label>
+        </div>
+
+        <div class="input-box">
+            <input type="password" required placeholder="*******" minlength="8" id="senha">
+            <label>Senha</label>
+
+        </div>
+            <button class="botao" onclick="Entrou()" id="entrar">Entrar</button>
+
+    </div>
+
+
+    <script>
+
+        let email = document.getElementById("email")
+        let senha = document.getElementById("senha")
+        let entrar = document.getElementById("entrar")
+
+        function Entrou(){
+            if (email.value !== "" &&   senha.value !== ""){
+                alert("Bem-vindo(a) ao sistema de teste!")
+            } else{
+                alert("Preencha os campos corretamente!")
+            }
+        }
+
+    </script>
+</body>
+</html>
